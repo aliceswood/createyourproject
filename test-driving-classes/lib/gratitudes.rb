@@ -1,0 +1,2 @@
+class Gratitudes
+end
