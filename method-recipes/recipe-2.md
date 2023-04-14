@@ -27,7 +27,6 @@ verified_grammar: boolean result
 _Make a list of examples of what the method will take and return._
 
 
-
 ```ruby
 grammar_checker("") => fail
 grammar_checker("Hello world.") => true
@@ -48,3 +47,4 @@ _After each test you write, follow the test-driving process of red, green, refac
 <!-- BEGIN GENERATED SECTION DO NOT EDIT -->
 
 ---
+
