@@ -48,18 +48,18 @@ RSpec.describe DiaryEntry do
       end
     end
 
-    context 'given a wpm of 0' do
-      it 'fails' do
-        diary_entry = DiaryEntry.new("title", ("one two three"))
-        expect { diary_entry.reading_chunk(0, 5) }.to raise_error "Reading speed must be above 0"
-      end
-    end
-
     it "returns the next chunk next time we are asked" do
       diary_entry = DiaryEntry.new("title", ("one two three"))
       diary_entry.reading_chunk(2, 1)
       chunk = diary_entry.reading_chunk(2, 1)
       expect(chunk).to eq "three"
+    end
+
+    context 'given a wpm of 0' do
+      it 'fails' do
+        diary_entry = DiaryEntry.new("title", ("one two three"))
+        expect { diary_entry.reading_chunk(0, 5) }.to raise_error "Reading speed must be above 0"
+      end
     end
 
     it "restarts after reading all of the contents" do
