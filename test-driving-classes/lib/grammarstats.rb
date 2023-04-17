@@ -31,6 +31,3 @@ class GrammarStats
     end
   end
 end
-
-test = GrammarStats.new
-p test.check("heenmklds")
