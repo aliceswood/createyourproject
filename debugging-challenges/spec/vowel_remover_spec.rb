@@ -13,5 +13,9 @@ RSpec.describe "remove_vowels method" do
     expect(result_no_vowels).to eq "W wll rmv th vwls frm ths sntnc."
   end
 
-  it 
+  it "removes vowels from vowel only sentence" do
+    remover = VowelRemover.new("aeiou")
+    result_no_vowels = remover.remove_vowels
+    expect(result_no_vowels).to eq ""
+  end
 end
