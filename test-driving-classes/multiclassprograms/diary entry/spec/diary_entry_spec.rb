@@ -33,7 +33,7 @@ RSpec.describe DiaryEntry do
       entry1 = DiaryEntry.new("title1", "contents")
       expect { entry1.reading_time(0) }.to raise_error "WPM must be positive"
     end
-    # remember the case where wpm is 0
+ 
     it "returns 0 if the contents is empty" do
       entry1 = DiaryEntry.new("title1", "")
       expect(entry1.reading_time(2)).to eq 0
