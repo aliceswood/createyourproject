@@ -12,15 +12,11 @@ class Diary
   end
 
   def count_words
-    # Returns the number of words in all diary entries
-    # HINT: This method should make use of the `count_words` method on DiaryEntry.
     return @diary.sum(&:count_words)
   end
 
-  def reading_time(wpm) # wpm is an integer representing
-                        # the number of words the user can read per minute
-    # Returns an integer representing an estimate of the reading time in minutes
-    # if the user were to read all entries in the diary.
+  def reading_time(wpm) 
+    return (count_words / wpm.to_f).ceil
   end
 
   def find_best_entry_for_reading_time(wpm, minutes)
