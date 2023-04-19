@@ -25,6 +25,13 @@ RSpec.describe "Diary Integration" do
   end
 
   describe "reading_time method" do
+    it "fails when wpm is 0" do
+      diary = Diary.new
+      entry1 = DiaryEntry.new("title1", "contents1")
+      diary.add(entry1)
+      expect{ diary.reading_time(0) }.to raise_error "WPM must be positive"
+    end
+
     it "calculates the reading time for all entries in diary and wpm fits whole minutes exactly" do
       diary = Diary.new
       entry1 = DiaryEntry.new("title1", "contents1 word word")
