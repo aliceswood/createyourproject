@@ -23,22 +23,22 @@ I want to see a list of all of the mobile phone numbers in all my diary entries
 ## 2. Design the Class System
 Consider diagramming out the classes and their relationships. Take care to focus on the details you see as important, not everything. The diagram below uses asciiflow.com but you could also use excalidraw.com, draw.io, or miro.com
 
-┌────────────────────────────┐
-│ MusicPlayer                │
-│                            │
-│ - add(track)               │
-│ - all                      │
-│ - search_by_title(keyword) │
-│   => [tracks...]           │
-└───────────┬────────────────┘
-            │
-            │ owns a list of
-            ▼
-┌─────────────────────────┐
-│ Track(title, artist)    │
-│                         │
-│ - title                 │
-│ - artist                │
-│ - format                │
-│   => "TITLE by ARTIST"  │
-└─────────────────────────┘
+┌────────────────────────────────┐    ┌───────────────────┐
+│                                │    │                   │
+│ Diary                          │    │  Todo             │
+│ --------                       │    │  -------          │
+│ add                            │    │  add              │
+│ list                           ├────►  list             │
+│ reading_time(wpm)              │    │                   │
+│ chose_entry_based_on_time      │    │                   │
+│                                │    │                   │
+│                                │    │                   │
+└───────────────┬────────────────┘    └───────────────────┘
+                │
+┌───────────────▼────────────────┐
+│                                │
+│   MobileNumbers                │
+│   ------------                 │
+│   add (from diary entry)       │
+│   list                         |
+└────────────────────────────────┘
