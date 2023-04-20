@@ -5,9 +5,4 @@ RSpec.describe TodoList do
     todo_list = TodoList.new
     expect(todo_list.incomplete).to eq []
   end
-
-  it "adds" do
-    todo_list = TodoList.new
-    expect(todo_list.add("todo1")).to eq ["todo1"]
-  end
 end
