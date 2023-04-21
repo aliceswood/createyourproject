@@ -11,8 +11,10 @@ class Diary
     return @diary_entries
   end
 
-  def chose_entry(wpm, minutes) 
-    #integrated test with DiaryEntry
+  def readable_entries(wpm, minutes)
+    @diary_entries.filter do |entry|
+      entry.reading_time(wpm) <= minutes
+    end
   end
 
   def store_todo 

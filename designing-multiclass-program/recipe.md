@@ -33,9 +33,11 @@ class Diary
   end
 
   def add_diary_entry #integrated test with DiaryEntry
+  # DONE
   end
 
   def all_diary_entries #integrated test with DiaryEntry
+  # DONE
   end 
 
 
@@ -59,12 +61,15 @@ DiaryEntryMethods
 
 class DiaryEntry
   def initialize
+  # DONE
   end
 
   def title
+  # DONE
   end
 
   def contents
+  # DONE
   end
 
   def count_words
