@@ -29,7 +29,7 @@ Consider diagramming out the classes and their relationships. Take care to focus
 DiaryMethods
 class Diary
   def initialize
-  # tbc
+  # DONE
   end
 
   def add_diary_entry #integrated test with DiaryEntry
@@ -42,6 +42,7 @@ class Diary
 
 
   def chose_entry(wpm, minutes) #integrated test with DiaryEntry
+  # DONE
   end
 
   def store_todo # integrated test with Todo

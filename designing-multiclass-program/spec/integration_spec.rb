@@ -28,3 +28,28 @@ RSpec.describe 'Diary Entry integration' do
     end
   end
 end
+
+RSpec.describe "Todo Integration" do
+  context "it gets given some todos" do
+    it "stores the todos in a list as incomplete" do
+      diary = Diary.new
+      todo1 = Todo.new("todo1")
+      todo2 = Todo.new("todo2")
+      diary.store_todo(todo1)
+      diary.store_todo(todo2)
+      expect(diary.incomplete_todo).to eq [todo1, todo2]
+    end
+  end
+
+  context "when todos are marked as complete" do
+    it "will return the list of only tasks that have been completed" do
+      diary = Diary.new
+      todo1 = Todo.new("todo1")
+      todo2 = Todo.new("todo2")
+      diary.store_todo(todo1)
+      diary.store_todo(todo2)
+      todo1.mark_complete!
+      expect(diary.completed_todo).to eq [todo1]
+    end
+  end
+end

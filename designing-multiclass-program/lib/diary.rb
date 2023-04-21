@@ -1,6 +1,7 @@
 class Diary
   def initialize
     @diary_entries = []
+    @todo_list = []
   end
 
   def add_diary_entry(entry) 
@@ -17,12 +18,20 @@ class Diary
     end
   end
 
-  def store_todo 
-    # integrated test with Todo
+  def store_todo(todo)
+    @todo_list << todo
   end
 
-  def all_todo 
-    # integrated test with Todo
+  def completed_todo 
+    return @todo_list.select do |task|
+        task.complete? == true
+    end
+  end
+
+  def incomplete_todo
+    return @todo_list.select do |task|
+        task.complete? == false
+    end
   end
 
   def store_contacts 
