@@ -2,17 +2,6 @@ require 'todo_list'
 require 'todo'
 
 RSpec.describe "ToDo Integration" do
-  # context "given some todos" do
-  #   xit "adds to the list " do
-  #     todo_list = TodoList.new
-  #     todo1 = Todo.new("go shopping")
-  #     todo2 = Todo.new("go to work")
-  #     todo_list.add(todo1)
-  #     todo_list.add(todo2) 
-  #     expect(todo_list.incomplete).to eq [todo1, todo2]
-  #   end
-  # end
-
   context "there is one incomplete task" do 
     it "returns the only incomplete task" do
       todo_list = TodoList.new
