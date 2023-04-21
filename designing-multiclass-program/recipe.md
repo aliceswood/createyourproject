@@ -23,7 +23,35 @@ I want to see a list of all of the mobile phone numbers in all my diary entries
 ## 2. Design the Class System
 Consider diagramming out the classes and their relationships. Take care to focus on the details you see as important, not everything. The diagram below uses asciiflow.com but you could also use excalidraw.com, draw.io, or miro.com
 
-
+┌──────────────────────┐    ┌─────────────────────────────────┐
+│                      │    │                                 │   ┌───────────────────┐
+│ DiaryEntry           │    │ Diary                           │   │                   │
+│ -----------          │    │ --------                        │   │  Todo             │
+│ @title               │    │ @diary_entries                  │   │  -------          │
+│ @contents            │    │ @todo_list                      │   │   @task           │
+│                      │    │ @mobile_numbers                 ├───►   @done_status    │
+│                      ◄────┤                                 │   │  -------          │
+│ -----------          │    │                                 │   │  view             │
+│ title                │    │ ------------                    │   │  mark as complete │
+│ contents             │    │ add diary entry                 │   │  complete?        │
+│ count_words          │    │ list diary entries              │   └───────────────────┘
+│ reading_time(wpm)    │    │ add phone number                │
+└──────────────────────┘    │ list phone numbers              │
+                            │ add todo                        │
+                            │ list todos                      │
+                            │ select diary entry(wpm, minutes)│
+                            └───────────────┬─────────────────┘
+                                            │
+                                            │
+                                            │
+                               ┌────────────▼─────────────────┐
+                               │                              │
+                               │ MobileNumbers                │
+                               │ ------------                 │
+                               │ add(taken from diary entries)│
+                               │ view                         │
+                               │                              │
+                               └──────────────────────────────┘
 
 ```ruby
 DiaryMethods
@@ -95,7 +123,7 @@ end
 
 MobileNumberMethods
 class Contacts
-  def add
+  def 
   end
 
   def list

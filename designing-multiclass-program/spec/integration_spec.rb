@@ -53,3 +53,39 @@ RSpec.describe "Todo Integration" do
     end
   end
 end
+
+RSpec.describe "Contacts Integration" do
+  context "it extracts number when it is the only information in a string" do
+    it "saves them to the list" do
+      diary = Diary.new
+      diary.store_contact("07000000001")
+      diary.store_contact("07000000002")
+      expect(diary.all_contacts).to eq ["07000000001", "07000000002"]
+    end
+  end
+
+  context "when in a string of words" do
+    it "extracts the numbers and saves them as a list" do
+      diary = Diary.new
+      contact1 = Contact.new
+      diary.store_contact("07000000002 text hello")
+      expect(diary.all_contacts).to eq ["07000000002"]
+    end
+  end
+
+  context "when there are two number in a string" do
+    it "returns both numbers as separate entries in the list" do
+      diary = Diary.new
+      contact1 = Contact.new
+      diary.store_contact("07000000002 middle text 07000000001")
+      expect(diary.all_contacts).to eq ["07000000002", "07000000001"]
+    end
+  end
+
+  it "extracts numbers from all the diary entries" do
+    diary = Diary.new
+    diary_entry = DiaryEntry.new("title", "07000000002 middle text 07000000001")
+    diary.add_diary_entry(diary_entry)
+    expect(diary.all_contacts).to eq ["07000000002", "07000000001"]
+  end
+end

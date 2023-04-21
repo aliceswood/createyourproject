@@ -2,11 +2,13 @@ class Diary
   def initialize
     @diary_entries = []
     @todo_list = []
+    @contacts = []
   end
 
   def add_diary_entry(entry) 
     @diary_entries << entry
-  end
+    store_contact(entry.contents)
+  end 
 
   def all_diary_entries 
     return @diary_entries
@@ -34,11 +36,14 @@ class Diary
     end
   end
 
-  def store_contacts 
-    # integrated test with Contacts
+  def store_contact(text)
+    matches = text.scan(/[0-9]{11}/)
+    matches.each do |number_to_store|
+      @contacts << number_to_store
+    end
   end
 
-  def all_contacts 
-    # integrated test with Contacts
+  def all_contacts
+    return @contacts
   end
 end

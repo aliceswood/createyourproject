@@ -1,10 +1,4 @@
-class Contacts
+class Contact
   def initialize
-  end
-
-  def add
-  end
-
-  def list
   end
 end

@@ -10,4 +10,9 @@ RSpec.describe Diary do
     diary = Diary.new
     expect(diary.incomplete_todo).to eq []
   end
+
+  it "returns empty contacts list" do
+    diary = Diary.new
+    expect(diary.all_contacts).to eq []
+  end
 end
